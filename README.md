@@ -6,15 +6,20 @@ PoeticAI harnesses the power of Natural Language Processing (NLP) and state-of-t
 Project Structure
 The project is organized into different chapters, each dedicated to a specific stage of the poetry creation process:
 
-Data Preprocessing (data_processing.py): Prepares the dataset for training by performing tasks such as loading, cleaning, and encoding the text data, ensuring it's in the right format for the model.
+Data Preprocessing (data_processing.py): 
+Prepares the dataset for training by performing tasks such as loading, cleaning, and encoding the text data, ensuring it's in the right format for the model.
 
-Model Configuration and Setup (model.py): Configures the transformer-based BART model for poetry generation. This script sets up the model architecture and readies it for the training phase.
+Model Configuration and Setup (model.py): 
+Configures the transformer-based BART model for poetry generation. This script sets up the model architecture and readies it for the training phase.
 
-Training and Hyperparameter Optimization (training.py): This script fine-tunes the BART model on the Turkish poetry dataset. It includes mechanisms for early stopping to avert overfitting and employs Optuna for the optimization of hyperparameters, aiming to achieve peak model performance.
+Training and Hyperparameter Optimization (training.py): 
+This script fine-tunes the BART model on the Turkish poetry dataset. It includes mechanisms for early stopping to avert overfitting and employs Optuna for the optimization of hyperparameters, aiming to achieve peak model performance.
 
-Inference and Poem Generation (inference.py): Demonstrates the application of the trained model to generate new poems. This script showcases the model's capability to produce creative and contextually coherent Turkish poetry based on given prompts.
+Inference and Poem Generation (inference.py): 
+Demonstrates the application of the trained model to generate new poems. This script showcases the model's capability to produce creative and contextually coherent Turkish poetry based on given prompts.
 
-Main Execution Script (main.py): Serves as the project's entry point, orchestrating the entire process from data preprocessing and model training to the generation of new poetry.
+Main Execution Script (main.py): 
+Serves as the project's entry point, orchestrating the entire process from data preprocessing and model training to the generation of new poetry.
 
 Dependencies
 The following Python libraries are essential for running PoeticAI. Ensure they are installed in your environment:
