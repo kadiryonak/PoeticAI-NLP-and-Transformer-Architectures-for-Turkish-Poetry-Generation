@@ -18,9 +18,9 @@ def load_and_prepare_data(tokenizer_model='facebook/bart-large-cnn', max_length=
     
     # Data preparation function
     def prepare_data(instruction, poem):
-        # Encoder input (Komutları tokenleştirme)
+        # Encoder input (Tokenizing instruction )
         encoder_inputs = tokenizer.encode_plus(
-            instruction.lower(),  # Metni küçük harfe çevirme
+            instruction.lower(),  
             max_length=max_length,
             padding='max_length',
             truncation=True,
