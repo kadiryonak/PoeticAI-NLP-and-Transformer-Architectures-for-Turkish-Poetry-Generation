@@ -4,19 +4,19 @@ import pandas as pd
 from transformers import BartTokenizer
 
 def load_and_prepare_data(tokenizer_model='facebook/bart-large-cnn', max_length=512):
-    # Veri setini yükleyin
+    # Dataset
     dataset = load_dataset("beratcmn/instruction-turkish-poems")
     
-    # Veri setinden 'instruction' ve 'poem' sütunlarını çekin
+    # Pull 'instruction' and 'poem' columns from dataset
     poems_dataset = dataset['train'].map(lambda example: {'instruction': example['instruction'], 'poem': example['poem']})
     
     df = pd.DataFrame(poems_dataset)
     df = df[['instruction', 'poem']]
     
-    # Tokenizer'ı yükleyin
+    # Install Tokenizer
     tokenizer = BartTokenizer.from_pretrained(tokenizer_model)
     
-    # Veri hazırlama fonksiyonu
+    # Data preparation function
     def prepare_data(instruction, poem):
         # Encoder input (Komutları tokenleştirme)
         encoder_inputs = tokenizer.encode_plus(
@@ -27,9 +27,9 @@ def load_and_prepare_data(tokenizer_model='facebook/bart-large-cnn', max_length=
             return_tensors='pt'
         )
 
-        # Decoder input (Şiirleri tokenleştirme)
+        # Decoder input (Tokenizing poems)
         decoder_inputs = tokenizer.encode_plus(
-            poem.lower(),  # Metni küçük harfe çevirme
+            poem.lower(),  
             max_length=max_length,
             padding='max_length',
             truncation=True,
@@ -44,16 +44,16 @@ def load_and_prepare_data(tokenizer_model='facebook/bart-large-cnn', max_length=
             'labels': decoder_inputs['input_ids'].squeeze()
         }
 
-    # Tüm veri seti üzerinde veri hazırlığı
+    # Data preparation on the entire data set
     prepared_data = [prepare_data(row['instruction'], row['poem']) for _, row in df.iterrows()]
     
     return prepared_data
 
-# Tokenizer modelini yükleyip hazırlanan veriyi al
+# Load the tokenizer model and get the prepared data
 tokenizer_model = 'facebook/bart-large-cnn'
 prepared_data = load_and_prepare_data(tokenizer_model)
 
-# İlk beş örneğin verilerini kontrol et
+# Check the data for the first five examples
 for data in prepared_data[:5]:
     print("Encoder Input IDs:", data['input_ids'])
     print("Decoder Input IDs:", data['decoder_input_ids'])
