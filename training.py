@@ -74,7 +74,7 @@ def objective(trial):
     model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn').to(device)
     optimizer = AdamW(model.parameters(), lr=lr)
 
-    # Veri setleri ve DataLoader'lar
+    # Dataset's and DataLoader's
     train_dataset = PoemDataset(train_df, tokenizer)
     val_dataset = PoemDataset(val_df, tokenizer)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -93,7 +93,7 @@ def objective(trial):
             total_loss += loss.item()
         print(f"Epoch {epoch+1}, Training loss: {total_loss / len(train_loader)}")
 
-    # Doğrulama kaybını hesapla
+    # Calculate verification loss
     model.eval()
     val_loss = 0
     with torch.no_grad():
@@ -107,9 +107,9 @@ def objective(trial):
 study = optuna.create_study(direction='minimize')
 study.optimize(objective, n_trials=20)
 
-print("En iyi hiperparametreler: ", study.best_trial.params)
+print("best hyperparameters: ", study.best_trial.params)
 best_params = study.best_trial.params
-# En iyi hiperparametreleri kullanarak modelinizi eğitin
+# Train your model using the best hyperparameters
 lr = best_params['lr']
 batch_size = best_params['batch_size']
 epochs = best_params['epochs'] 
