@@ -1,10 +1,10 @@
 # PoeticAI-NLP-and-Transformer-Architectures-for-Turkish-Poetry-Generation
 
 Overview
-PoeticAI harnesses the power of Natural Language Processing (NLP) and state-of-the-art Transformer architectures to create Turkish poetry. This project is rooted in Python and utilizes a suite of libraries such as Transformers, Datasets, Pandas, NumPy, and PyTorch. The core of PoeticAI is the implementation of the BART For Conditional Generation model, a transformer-based model fine-tuned to generate poetry. By incorporating advanced NLP techniques and leveraging transformer models, PoeticAI offers a novel approach to understanding and generating Turkish poetry automatically.
+PoeticAI harnesses the power of Natural Language Processing (NLP) and state-of-the-art Transformer architectures to create Turkish poetry. This project is rooted in Python and utilizes a suite of libraries such as Transformers, Datasets, HuggingFace, Pandas, NumPy, and PyTorch. The core of PoeticAI is the implementation of the BART For Conditional Generation model, a transformer-based model fine-tuned to generate poetry. By incorporating advanced NLP techniques and leveraging transformer models, PoeticAI offers a novel approach to understanding and generating Turkish poetry automatically.
 
 Project Structure
-The project is meticulously organized into distinct sections, each dedicated to a specific phase of the poetry generation process:
+The project is organized into different chapters, each dedicated to a specific stage of the poetry creation process:
 
 Data Preprocessing (data_processing.py): Prepares the dataset for training by performing tasks such as loading, cleaning, and encoding the text data, ensuring it's in the right format for the model.
 
@@ -30,7 +30,7 @@ Begin by cloning the PoeticAI repository to your local machine:
 
 bash
 Copy code
-git clone <repository-url>
+git clone <[repository-url](https://github.com/kadiryonak/PoeticAI-NLP-and-Transformer-Architectures-for-Turkish-Poetry-Generation)>
 Then, navigate to the project directory and install the necessary dependencies:
 
 bash
