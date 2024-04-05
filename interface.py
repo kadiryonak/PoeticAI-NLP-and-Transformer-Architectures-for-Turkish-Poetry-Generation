@@ -2,7 +2,7 @@ from transformers import BartTokenizer, BartForConditionalGeneration
 import torch
 
 def generate_poems(instruction):
-    # Model ve tokenizer yükleme
+    # Loading model and tokenizer
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, tokenizer = load_model_and_tokenizer()
     model.to(device)
