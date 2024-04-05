@@ -10,7 +10,7 @@ def main():
     
      """ This part will be inherited from the training.py page.  """
     
-train_model(df, tokenizer)
+    train_model(df, tokenizer)
     instruction = "Güneşin batışı"
     generate_poems(instruction)
 
