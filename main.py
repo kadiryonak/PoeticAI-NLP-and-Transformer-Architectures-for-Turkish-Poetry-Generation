@@ -4,8 +4,8 @@ from training import train_model, PoemDataset
 from inference import generate_poems
 
 def main():
-    df = load_and_preprocess_data()
     model, tokenizer = load_model_and_tokenizer()
+    df = load_and_preprocess_data()
     PoemDataset(prepared_data)
     """ 
      This section will be inherited from the training.py page
